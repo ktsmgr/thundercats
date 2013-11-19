@@ -1,0 +1,14 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.description {
+	font-size: 10px;
+	color: #505050;
+}
+
+.col-md-4 .price {
+	font-size: 14px;
+	font-weight: bold;
+}

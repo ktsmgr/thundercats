@@ -1,0 +1,24 @@
+<h1>Welcome to ThunderCats!</h1>
+
+<div class="col-md-12">
+	<% @products.each do |product| %>
+	<div class="col-md-4 text-center">
+		<h3><%= product.name %></h3>
+		<div class="description text-center">
+			<p><%= product.description %></p>
+			<p><%= product.brand %></br>
+			SKU: <%= product.sku %></br>
+			Model#: <%= product.model_num %></br>
+			<div class="price">
+			<%= number_to_currency product.unit_price %></div></p>
+		</div>
+		<div>
+			Quantity: 
+			<input type-"text" class="quantity" value="1" />
+			<!-- <input type-"text" class="quantity" placeholder="Enter number" /> -->
+			<button class="add-to-cart-button">Add to Cart</button>
+		</div>
+	</div>
+	<% end %>
+</div>
+
