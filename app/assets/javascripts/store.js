@@ -25,14 +25,18 @@ $(document).ready(function () {
 		var value_int = parseInt(value);
 		// This converts the string into an integer
 
-		// Homework: var product_id = //do something here
+		// Homework start
+		var product_id = $(this).data('product-id');
+
+		// Homework alternate solution from Sarah: $(this).siblings('.product_id').val();
+		// Homework end
 
 		if (value_int > 0) {
 
 			// Make an AJAX call
 			$.post('/store/add_cart', {
-				quantity : value_int //,
-				// Homework: product_id : product_id
+				quantity : value_int,
+				product_id : product_id
 			});
 
 			// This makes a POST request
