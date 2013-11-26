@@ -1,5 +1,35 @@
 <p id="notice"><%= notice %></p>
 
+
+<!-- @customer.orders.each do |order| %> -->
+<!-- New code due to limitation to one order per customer transaction -->
+<% order = @customer.order %>
+<% if ! order.blank? %>
+<!-- If order is not blank, do this -->
+  <h2>Thank you for your order!</h2>
+  <h4>Your order has been received.</h4>
+
+  <% order.line_items.each do |line_item| %>
+  <!-- No longer going to session, we're pulling from the DB -->
+    <%= line_item.quantity %>
+    <%= line_item.product.name %>
+    <%= number_to_currency(line_item.unit_price) %>
+    <!-- You don't need to use the parenthesis, but it makes it easier to read -->
+    <%= number_to_currency line_item.line_item_total %>
+    <br>
+  <% end %>
+  Subtotal: <%= number_to_currency order.sub_total %><br>
+  Sales tax (<%= Order.sales_tax_in_percent %>)%: <%= number_to_currency order.sales_tax %><br>
+  Grand Total: <%= number_to_currency order.grand_total %><br>
+<% else %>
+  Your cart is empty! 
+<% end %>
+<%= link_to 'Back to products page', root_path %>
+
+<hr>
+
+<h3>Your Contact Information:</h3>
+
 <p>
   <strong>Name:</strong>
   <%= @customer.name %>
@@ -16,12 +46,12 @@
 </p>
 
 <p>
-  <strong>Addy1:</strong>
+  <strong>Address line 1:</strong>
   <%= @customer.addy1 %>
 </p>
 
 <p>
-  <strong>Addy2:</strong>
+  <strong>Address line 2:</strong>
   <%= @customer.addy2 %>
 </p>
 

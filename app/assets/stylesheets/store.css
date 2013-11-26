@@ -12,3 +12,26 @@
 	font-size: 14px;
 	font-weight: bold;
 }
+
+.cart {
+	position:absolute; 
+	width:200px; 
+	right:10px; 
+	background-color:beige; 
+	padding:10px; 
+	border:2px solid red;
+	z-index: 9999;
+}
+
+.cart-panel {
+	position:relative;
+}
+
+#cart-total {
+	font-weight:bold; 
+	text-align:right
+}
+
+#cart_detail_panel {
+	display: none;    /*commented out for Homework*/
+}

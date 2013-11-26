@@ -1,0 +1,49 @@
+<h1>Order History</h1>
+<table class="order-history-table table table-striped">
+	<tr>	
+		<th>ID</th>
+		<th>Customer Information</th>
+		<th>Subtotal</th>
+		<th>Sales Tax</th>
+		<th>Grand Total</th>
+	</tr>
+	<% @orders.each do |order| %>
+	<!-- order is an object that belongs to class customer -->
+		<tr class="orders" data-id="<%= order.id %>">
+			<td><%= order.id %></td>
+			<td><%= order.customer.name %></td>
+			<td><%= number_to_currency(order.sub_total) %></td>
+			<td><%= number_to_currency(order.sales_tax) %></td>
+			<td><%= number_to_currency(order.grand_total) %></td>
+		</tr>
+		<tr id="order-details<%= order.id %>" class="details">
+			<td colspan="2">
+				<h5>Contact Information</h5>
+				<%= raw prettify_address(order.customer) %><br>
+					<!-- raw is a method to dump the strings as is into html -->
+				<%= order.customer.email %><br>
+				<%= order.customer.phone %><br>
+			</td>
+			<td>
+				<h5>Order Details</h5>
+				<% order.line_items.each do |line_item| %>
+				<%= line_item.quantity %>
+				<%= line_item.product.name %><br>
+				<% end %>
+			</td>
+			<td>
+				<h5>Unit Price</h5>
+				<% order.line_items.each do |line_item| %>
+				<%= number_to_currency(line_item.unit_price) %><br>
+				<% end %>
+			</td>
+			<td>
+				<h5>Line Item Total</h5>
+				<% order.line_items.each do |line_item| %>
+				<%= number_to_currency(line_item.line_item_total) %><br>
+				<% end %>
+			</td>
+		</tr>
+	<% end %><!-- orders.each -->
+
+</table>

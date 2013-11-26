@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :authenticate_user!
+  #This prevents unauthorized users from viewing products page
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products

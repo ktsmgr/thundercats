@@ -1,6 +1,11 @@
 Thundercats::Application.routes.draw do
+  get "orders/index"
   get "store/index"
   post "store/add_cart"
+  get "products-by-category/:category_name" => "store#index", as: :products_by_category
+  # To change the route to say /products-by-category/ instead of store/index?...
+  # Alias used so change appl html path to products_by_category
+  # Changing category_id to category_name: Must change the controller for method index too
 
   devise_for :users
   resources :customers

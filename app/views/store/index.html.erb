@@ -1,31 +1,30 @@
-<div style="position:relative;">
+<div class="cart-panel">
 
-	<div style="position:absolute; width:200px; right:10px; background-color:beige; padding:10px; border:2px solid red;">
+	<div class="cart">
 		<h4>Your Cart</h4>
 		<div id="cart_msg">
-			<% if @cart.count <= 0 %>
-				You have nothing in your cart. Shame on you!
-			<% else %>
-				You have <%= pluralize(@cart.count, "item") %> in your cart.
-			<% end %>
+			<%= render 'cart' %>
 		</div>
-	</div>
+	</div>    
+
 
 
 	<h1>Welcome to ThunderCats!</h1>
 
-	<div class="col-md-12">
+	<div class="row">
 		<% @products.each do |product| %>
 		<div class="col-md-4 text-center">
 			<h3><%= product.name %></h3>
 			<div class="description text-center">
-				<p><%= product.description %></p>
-				<p><%= product.brand %></br>
-				SKU: <%= product.sku %></br>
-				Model#: <%= product.model_num %></br>
-				<div class="price">
-				<%= number_to_currency product.unit_price %></div></p>
-			</div>
+				<%= product.description %></div>
+					<div class="details text-center">
+						<%= product.brand %></br>
+						SKU: <%= product.sku %></br>
+						Model#: <%= product.model_num %></br>
+						<div class="price">
+							<%= number_to_currency product.unit_price %>
+						</div>
+					</div><!-- Details -->
 			<div>
 				Quantity: 
 				<!-- Homework start -->
@@ -34,7 +33,8 @@
 
 				<input type-"text" class="quantity" value="1" />
 				<!-- <input type-"text" class="quantity" placeholder="Enter number" /> -->
-				<button class="add-to-cart-button" data-product-id="<%=product.id %>">Add to Cart</button>
+				<button class="add-to-cart-button" data-product-id="<%=product.id %>"
+				data-product-name="<%=product.name %>" data-unit-price="<%=product.unit_price %>">Add to Cart</button>
 			</div>
 		</div>
 		<% end %>

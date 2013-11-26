@@ -1,3 +1,7 @@
 //syntax is in javascript
-alert('Thank you for buying our product. Meow!');
-$('#cart_msg').html('You have <%= pluralize(@cart.count, "item") %> in your cart.'); 
+alert('Thank you for buying <%= @product_name %> ...MEOW!');
+
+//This js gets executed from store js file (alert)
+//Need to loop through to show the content below:
+$('#cart_msg').html(' <%= escape_javascript(render "cart") %> '); 
+//Cart msg gets rendered and a new cart is rendered (cart items get updated)
