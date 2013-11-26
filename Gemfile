@@ -6,8 +6,9 @@ gem 'rails', '4.0.0'
 gem 'devise'
 
 # Use pd as the database for Active Record
-group :production, :test do 
-	gem 'pd'
+group :production do 
+	gem 'pg'
+	gem 'rails_12factor'
 end
 
 # Use sqlite3 as the database for Active Record
