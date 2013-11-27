@@ -2,6 +2,9 @@ Thundercats::Application.routes.draw do
   get "orders/index"
   get "store/index"
   post "store/add_cart"
+  delete "store/remove_cart_item"
+  #added to create a route for deleting cart line items
+
   get "products-by-category/:category_name" => "store#index", as: :products_by_category
   # To change the route to say /products-by-category/ instead of store/index?...
   # Alias used so change appl html path to products_by_category

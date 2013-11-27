@@ -28,7 +28,16 @@ class StoreController < ApplicationController
   end #def index
 
 
-
+  #added to define the method for deleting cart line items
+  def remove_cart_item
+    product_id = params[:product_id]
+    @cart = session[:cart]
+    @cart.delete(product_id)
+    #to delete the line item completely (can't use nil)
+    
+    #@sum = Cart.calculate_cart_total(@cart)
+    redirect_to store_index_path
+  end
 
 
   def add_cart
