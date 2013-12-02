@@ -1,43 +1,58 @@
-<div class="cart-panel">
+<div class="container">   
 
-	<div class="cart">
-		<h4>Your Cart</h4>
-		<div id="cart_msg">
-			<%= render 'cart' %>
-		</div>
-	</div>    
+	<div class="row-fluid">
+		<div class="content col-xs-12 col-sm-8 col-md-9 col-lg-8">
 
+			<h1>We sell cat products!</h1>
 
-
-	<h1>Welcome to ThunderCats!</h1>
-
-	<div class="row">
-		<% @products.each do |product| %>
-		<div class="col-md-4 text-center">
-			<h3><%= product.name %></h3>
-			<div class="description text-center">
-				<%= product.description %></div>
+			<% @products.each do |product| %>
+				<div class="product col-md-4 text-center">
+					<h3><%= product.name %></h3>
+					<p><%= image_tag product.photo.url(:thumb) %></p>
+					<div class="description text-center">
+						<%= product.description %>
+					</div><!-- Description -->
 					<div class="details text-center">
 						<%= product.brand %></br>
 						SKU: <%= product.sku %></br>
 						Model#: <%= product.model_num %></br>
 						<div class="price">
 							<%= number_to_currency product.unit_price %>
-						</div>
+						</div><!-- Price -->
 					</div><!-- Details -->
-			<div>
-				Quantity: 
-				<!-- Homework start -->
-				<!-- <input type="hidden" class="product-id" value=" <%= product.id %>" /> -->
-				<!-- Homework end -->
+					Qty: 
+					<!-- Homework start -->
+					<!-- <input type="hidden" class="product-id" value=" <%= product.id %>" /> -->
+					<!-- Homework end -->
 
-				<input type-"text" class="quantity" value="1" />
-				<!-- <input type-"text" class="quantity" placeholder="Enter number" /> -->
-				<button class="add-to-cart-button" data-product-id="<%=product.id %>"
-				data-product-name="<%=product.name %>" data-unit-price="<%=product.unit_price %>">Add to Cart</button>
+					<input type-"text" class="quantity" value="1" />
+					<!-- <input type-"text" class="quantity" placeholder="Enter number" /> -->
+					<button class="add-to-cart-button btn-info" data-product-id="<%=product.id %>"
+					data-product-name="<%=product.name %>" data-unit-price="<%=product.unit_price %>">Add to Cart</button>
+				</div><!-- End of product -->
+			<% end %>
+		</div><!-- End of content -->
+
+		<div class="sidebar col-xs-6 col-sm-4 col-md-3 col-lg-4">
+			<div class="search-box">
+				<form class="navbar-form navbar-left" role="search" style="width:70%">
+				  <div class="form-group">
+				    <input type="text" class="form-control" placeholder="Search">
+				  	<%= image_tag "010572-antique-glowing-copper-orb-icon-animals-animal-cat-print.png", :title => "Thundercats paw print bubble", :style => "width:60%" %>
+
+				    <button type="submit" class="btn btn-info pull-right">GO</button>
+				  </div>
+				</form>
 			</div>
-		</div>
-		<% end %>
-	</div>
+    	
+    	<div class="cart">
+				<h4>Your Cart</h4>
+				<div id="cart_msg">
+					<%= render 'cart' %>
+				</div><!-- end of cart_msg div -->
+			</div> <!-- end of cart div -->
+		</div> <!-- end of sidebar div -->
 
-</div>
+	</div><!-- End of row -->
+
+</div><!-- End of container -->

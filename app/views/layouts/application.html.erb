@@ -17,6 +17,7 @@
 <link href='http://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
   <!-- Mystery Quest font style ends here -->
 
+
 </head>
 
 
@@ -25,10 +26,10 @@
 <div class="navbar">
 	<div class="container" id="top_bar">
 		<div id="login_notice">
-			<% if user_signed_in? %>
+			<% if user_signed_in? %> 
 				Hi, <%= current_user.email %>
-				<%= link_to "Products", products_path %>
-				<%= link_to "Orders", orders_index_path %>
+				<%= link_to "Products", products_path %> 
+				<%= link_to "Orders", orders_index_path %> 
 				<%= link_to "Log Out", destroy_user_session_path, method: "delete" %>
 			<% end %>
 
@@ -58,13 +59,14 @@
 
 
 	<div id="header">
-		<div class="container navbar-header ">
+		<div class="container navbar-header">
 			<div class="pull-left">
 		    <%= image_tag "Cat-Black-icon.png", :title => "Thundercats products for cats and cat lovers", :style => "width:70px" %>
 				<%= link_to "Thundercats", root_path, :class => "wendy_one" %>
+				<%= image_tag "paw_prints2.png", :title => "Thundercats paw prints", :class => "paw-prints" %>
 			</div>
 
-	   	<div id="nav_links" class="navbar-collapse collapse active ">
+	   	<div id="nav_links" class="navbar-collapse collapse active">
 	      <ul class="nav navbar-nav pull-right">
 	      	<li><%= link_to "All products", root_path %></li>
 	      	<% Category.order('name asc').each do |category| %>
@@ -81,17 +83,7 @@
 <!-- main -->
 <div class="container">
 
-	<div id="content">
-
-
-
-  </div> <!-- end of content div -->
-
-  <div id="sidebar">
-
-  </div> <!-- end of sidebar div -->
-
-	<%= yield %>
+			<%= yield %>
 
 </div> <!-- end of main container div -->
 

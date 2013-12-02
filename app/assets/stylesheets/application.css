@@ -15,8 +15,18 @@
 html, body {
 	padding: 0;
 	margin: 0;
+	width: 100%;
 	font-family: Tahoma, Arial, sans-serif; 
 	color: #767676; 
+	/*
+	background: url('orange_paw_print_fade2.png') no-repeat center center fixed;
+	background-repeat: repeat;
+	background-position: fixed;
+  -webkit-background-size: 50px;
+  -moz-background-size: 50px;
+  -o-background-size: 50px;
+  background-size: 50px;
+  */
 }
 
 a:hover, a:focus {
@@ -25,16 +35,18 @@ a:hover, a:focus {
 	-webkit-transition: opacity 1s;
 }
 
-#top_bar, #footer {
+#top_bar {
 	background-color: #282828;
 	color: orange;
 	width: 100%;
-	height: 50px;
+	padding: 5px;	
+	height: 4em;
 }
 
 #login_notice {
-	padding: 20px 30px 20px 30px;
+	padding: 10px 30px 20px 30px;
 	float: left;
+	height: relative;
 }
 
 .wendy_one {
@@ -44,6 +56,9 @@ a:hover, a:focus {
 	text-shadow: 1px 1px 1px #181818;
 }
 
+.paw-prints {
+	width:70px;
+}
 
 #header {
 	background-color: #FF9900; 
@@ -57,15 +72,24 @@ a:hover, a:focus {
 	clear:both; 
 }
 
+.row {
+	margin: 20px;
+}
+
+.sidebar {
+	padding: 50px 20px 20px 20px;
+}
+
 #footer {
-  float: bottom;
   clear: both;
-  padding: 30px;
+  position: absolute;
   width: 100%;
-  height: 100px;
+  height: 5em;
+	margin: 0;
+	padding-top: 15px;
+	background-color: #282828;
   text-align: center;
 	font-size: 10px;
-	margin: 0;
 	font-family: Helvetica;
 	color: orange;
 }

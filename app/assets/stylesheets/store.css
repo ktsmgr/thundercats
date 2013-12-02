@@ -3,28 +3,17 @@
   They will automatically be included in application.css.
 */
 
-.description {
-	font-size: 10px;
-	color: #505050;
-}
-
-.col-md-4 .price {
-	font-size: 14px;
-	font-weight: bold;
-}
-
 .cart {
-	position:absolute; 
+	position: right; 
 	width:200px; 
 	right:10px; 
-	background-color:beige; 
+	background-color: beige; 
 	padding:10px; 
-	border:2px solid red;
-	z-index: 9999;
+	border:2px solid orange;
 }
 
-.cart-panel {
-	position:relative;
+.cart_n_button {
+	background-color: #FFC973;
 }
 
 #cart-total {
@@ -34,4 +23,40 @@
 
 #cart_detail_panel {
 	display: none;    /*commented out for Homework*/
+}
+
+.product {
+	padding: 10px 0 20px 0;
+	border-color: grey;
+}
+
+.content {
+	padding: 20px 0 40px 0;
+}
+
+.description {
+	font-size: 14px;
+	color: #505050;
+}
+
+.details {
+	font-size: 10px;
+	font-style: italic;
+	color: #3333CC;
+	padding: 1em;
+}
+
+.details .price {
+	font-size: 14px;
+	font-weight: bold;
+	font-style: normal;
+	color: #000000;
+}
+
+.quantity {
+	width: 3em;
+}
+
+.search-box {
+	display: inline-block;
 }

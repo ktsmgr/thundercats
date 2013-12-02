@@ -1,4 +1,5 @@
 class StoreController < ApplicationController
+
   def index
     category_name = params[:category_name]
     if category_name.blank?
@@ -25,6 +26,7 @@ class StoreController < ApplicationController
     
     @sum = Cart.calculate_cart_total(@cart)
     #To instantiate and then call the Class method
+
   end #def index
 
 

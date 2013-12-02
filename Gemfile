@@ -3,6 +3,14 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+gem 'breadcrumbs_on_rails'
+#Gem for breadcrumbs
+
+gem "paperclip", "~> 3.0"
+#Gem for image uploads
+gem 'aws-sdk'
+#To configure for Amazon AWS storage of images
+
 gem 'devise'
 
 # Use pd as the database for Active Record
