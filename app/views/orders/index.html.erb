@@ -28,7 +28,7 @@
 				<h5>Order Details</h5>
 				<% order.line_items.each do |line_item| %>
 				<%= line_item.quantity %>
-				<%= line_item.product.name %><br>
+				<%= line_item.product.try(:name) %><br>
 				<% end %>
 			</td>
 			<td>
