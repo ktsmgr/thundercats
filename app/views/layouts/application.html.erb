@@ -8,6 +8,9 @@
 	<meta name="author" content="Keala Tyler" />
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
@@ -51,7 +54,8 @@
 			</div> <!-- end of navbar button -->
 
 			<div>
-				<span class="glyphicon glyphicon-shopping-cart"></span>
+				<span class="glyphicon glyphicon-shopping-cart" style="text-align: center;"><br>
+					Items</span>
 
 			</div> <!-- end of shopping-cart glyphicon -->
 		</div> <!-- end of cart_n_button -->
@@ -89,9 +93,13 @@
 
 
 <!-- footer -->
-<div id="footer">Copyright © 2013 Xymone<br>
-All rights reserved
-</div>
+<div id="footer">
+	<div class="left">Copyright © <%= Time.now.year %> Xymone. All rights reserved.
+	</div><!-- class left -->
+	<div class="right">
+		<%= link_to "Have a question? Contact us!", store_contact_us_path %>
+	</div><!-- class right -->
+</div><!-- footer -->
 
 </body>
 </html>

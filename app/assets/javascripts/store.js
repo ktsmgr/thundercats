@@ -1,5 +1,27 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
+function initialize() {
+  var myLatlng = new google.maps.LatLng(33.746152, -84.372961);
+	var map_canvas = document.getElementById('map_canvas');
+  var map_options = {
+    center: myLatlng,
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(map_canvas, map_options)
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
 $(document).ready(function () {
 // When everything is loaded (all html files are loaded), run this code
 	$(document).on('click', '#toggle_cart_button', function () {

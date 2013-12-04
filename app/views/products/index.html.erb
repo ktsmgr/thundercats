@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Image</th>
       <th>Product name</th>
       <th>Unit price</th>
       <th>Description</th>
@@ -10,15 +11,13 @@
       <th>SKU</th>
       <th>Brand</th>
       <th>Model #</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= image_tag product.photo.url(:thumb) %></td>
         <td><%= product.name %></td>
         <td><%= product.unit_price %></td>
         <td><%= product.description %></td>

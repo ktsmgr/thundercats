@@ -54,10 +54,21 @@ class CustomersController < ApplicationController
           line_item.order_id = order.id
 
           line_item.save
-          session.clear
-          #clears the cache for the session after storing the order and line item info into the DB
+
+          product = Product.find(line_item.product_id)
+          product.quantity = product.quantity - line_item.quantity
+          product.save
+          #added this code block to remove ordered items from inventory (product list quantity)
 
         end
+
+        #Added for email delivery
+        Notifier.order_confirmation_email(@customer).deliver
+
+
+          session.delete(:cart)
+          #session.clear clears the entire cache for the session after storing the order and line item info into the DB. 
+          #session.delete(:cart) clears only the cart items and doesn't log out the users.
 
 
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }

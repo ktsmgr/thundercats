@@ -4,7 +4,7 @@
 <% else %>
 	You have <%= pluralize(@cart.count, "item") %> in your cart.
 
-	<button id="toggle_cart_button" class="btn-info">View</button>
+	<button id="toggle_cart_button" class="btn-warning">View</button>
 
 	<div id="cart_detail_panel">
 		<% @cart.each do |key, value| %>

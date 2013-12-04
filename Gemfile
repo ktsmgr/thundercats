@@ -11,6 +11,15 @@ gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 #To configure for Amazon AWS storage of images
 
+gem 'kaminari'
+#For pagination
+
+gem 'kaminari-bootstrap'
+#To stylize pagination
+
+gem 'formtastic'
+#To build forms
+
 gem 'devise'
 
 # Use pd as the database for Active Record

@@ -4,11 +4,15 @@
 		<div class="content col-xs-12 col-sm-8 col-md-9 col-lg-8">
 
 			<h1>We sell cat products!</h1>
-
+			<%= render_breadcrumbs %><br>
+			<!-- added for breadcrumbs -->
+			<%= paginate @products %>
+			<div class="row-fluid">
+			<% i = 0 %>
 			<% @products.each do |product| %>
 				<div class="product col-md-4 text-center">
 					<h3><%= product.name %></h3>
-					<p><%= image_tag product.photo.url(:thumb) %></p>
+					<p><%= image_tag product.photo.url(:medium) %></p>
 					<div class="description text-center">
 						<%= product.description %>
 					</div><!-- Description -->
@@ -30,20 +34,31 @@
 					<button class="add-to-cart-button btn-info" data-product-id="<%=product.id %>"
 					data-product-name="<%=product.name %>" data-unit-price="<%=product.unit_price %>">Add to Cart</button>
 				</div><!-- End of product -->
-			<% end %>
+				<% i += 1 %>
+				<% if i != 0 && i % 3 == 0 %>
+					</div><!-- End of product row -->	
+					<div class="row-fluid">
+					<% i = 0 %>
+				<% end %><!-- End of if block -->
+			<% end %><!-- End of each loop -->
+			</div><!-- End of next row -->
+			<%= paginate @products %>
 		</div><!-- End of content -->
 
 		<div class="sidebar col-xs-6 col-sm-4 col-md-3 col-lg-4">
 			<div class="search-box">
-				<form class="navbar-form navbar-left" role="search" style="width:70%">
-				  <div class="form-group">
+			  <div class="form-group">
+			  	<div class="input-group">
 				    <input type="text" class="form-control" placeholder="Search">
-				  	<%= image_tag "010572-antique-glowing-copper-orb-icon-animals-animal-cat-print.png", :title => "Thundercats paw print bubble", :style => "width:60%" %>
+				    <span class="input-group-btn">
+				     <button type="submit" class="btn btn-warning pull-right">GO</button>
+				    </span>
+				   </div>
+			  	<%= image_tag "010572-antique-glowing-copper-orb-icon-animals-animal-cat-print.png", :title => "Thundercats paw print bubble", :style => "width:50px" %>
 
-				    <button type="submit" class="btn btn-info pull-right">GO</button>
-				  </div>
-				</form>
-			</div>
+			   
+			  </div><!-- End of form-group -->
+			</div><!-- End of search box -->
     	
     	<div class="cart">
 				<h4>Your Cart</h4>
@@ -53,6 +68,6 @@
 			</div> <!-- end of cart div -->
 		</div> <!-- end of sidebar div -->
 
-	</div><!-- End of row -->
+	</div><!-- End of content and sidebar row -->
 
 </div><!-- End of container -->

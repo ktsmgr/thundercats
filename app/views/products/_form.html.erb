@@ -41,7 +41,10 @@
   </div><br>
    <div class="field">
     <%= f.file_field :photo %><br>
-  </div>
+    <%= image_tag @product.photo.url %> 
+    <%= image_tag @product.photo.url(:medium) %>
+    <%= image_tag @product.photo.url(:thumb) %>
+  </div><br>
   <div class="actions">
     <%= f.submit %>
   </div>

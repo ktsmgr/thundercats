@@ -1,7 +1,5 @@
 <p>
   <%= image_tag @product.photo.url %>
-  <%= image_tag @product.photo.url(:medium) %>
-  <%= image_tag @product.photo.url(:thumb) %>
 </p>
 <p>
   <strong>Name:</strong>
@@ -19,8 +17,8 @@
 </p>
 
 <p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity %>
+  <strong>Category:</strong>
+  <%= @product.category %>
 </p>
 
 <p>
