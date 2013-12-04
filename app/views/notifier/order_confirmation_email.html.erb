@@ -1,2 +1,9 @@
-<h1>Thank you for shopping with us, <%= @customer.name %></h1>
+<h1>Hello, <%= @customer.name %></h1>
+
+<%= render "customers/order_confirmation" %>
+
+<p>
+	Please click <%= link_to "here", root_url %> to continue shopping with us!
+</p>
+
 <p>We hope you have a fantastic day!</p>

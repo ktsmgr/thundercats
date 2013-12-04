@@ -1,0 +1,15 @@
+  <h2>Thank you for your order!</h2>
+  <h4>Your order has been received.</h4>
+
+  <% order = @customer.order %>
+  <% order.line_items.each do |line_item| %>
+    <%= line_item.quantity %>
+    <%= line_item.product.name %>
+    <%= number_to_currency(line_item.unit_price) %>
+    <%= number_to_currency line_item.line_item_total %>
+    <br>
+  <% end %>
+  Subtotal: <%= number_to_currency order.sub_total %><br>
+  Sales tax (<%= Order.sales_tax_in_percent %>)%: <%= number_to_currency order.sales_tax %><br>
+  Grand Total: <%= number_to_currency order.grand_total %><br>
+

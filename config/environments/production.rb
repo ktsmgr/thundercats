@@ -89,4 +89,6 @@ config.paperclip_defaults = {
   }
 }
 
+  config.action_mailer.default_url_options = { host:"keala-thundercats.herokuapp.com"}
+
 end
